@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HR Portal</title>
+    <link rel="shortcut icon" href="/static/img/hr.png" type="image/x-icon">
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background-color:rgb(115,172,225,255);
+            margin: 0px;
+            padding: 0px;
+        }
+        header,footer{
+            background-color: rgb(3, 96, 113);
+            color: aliceblue;
+            text-align:center;
+            padding: 2px;
+        }
+        .navitems{
+            display: inline;
+            padding: 15px;
+        }
+        .navitems a{
+            text-decoration: none;
+            color: aliceblue;
+        }
+        .registerform{
+            width: max-content;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .emptable{
+            text-align: center;
+
+        }
+
+        table{
+            margin-left: auto;
+            margin-right: auto;
+            width: 100%;
+            border-collapse: collapse;
+        }
+        td,th{
+            border: 1px solid #395c60;
+            padding: 4px;
+
+        }
+        .contactus{
+            text-align: center;
+        }
+        iframe{
+            width: 100%;
+        }
+        button{
+            display: inline-block;
+            margin-left: 100px;
+            
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+    <nav>
+        <h2>Employee Registration</h2>
+        <ul>
+            <li class="navitems"><a href="#Employee Registraion">Employee Registraion</a></li>
+            <li class="navitems"><a href="#Employee Directory">Employee Directry</a></li>
+            <li class="navitems"><a href="#contact us">Contact Us</a></li>
+        </ul>
+    </nav>
+</header>
+
+    <img src="/static/img/ep.jpg" alt="empl" style="width: 100%;">
+
+    <section id="Employee Registraion" class="registerform">
+        <h2>Employee Registraion Form</h2>
+        <form action="#Employee Registraion" method="post">
+            <label for="first">First Name:</label>
+            <input type="text" name="firstname" id="first" required>
+            <br>
+            <br>
+            <label for="last">last Name:</label>
+            <input type="text" name="lastname" id="last" required>
+            <br>
+            <br>
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" required>
+            <br>
+            <br>
+            <label for="age">Age:</label>
+            <input type="number" name="age" id="age" required>
+            <br>
+            <br>
+            <label for="role">Select Role:</label>
+            <select name="role"  id="role">
+                <option value="">Select</option>
+                <option value="softwareengineer">Software Engineer</option>
+                <option value="productengineer">Product Manager</option>
+                <option value="systemengineer">System Engineer</option>
+            </select>
+            <br>
+            <br>
+            <label for="date"> Join Date: </label>
+            <input type="date" name="joindate" id="date">
+            <br>
+            <br>
+            <button class="button "type="submit">Submit</button>
+        </form>
+    </section>
+
+    <section id="Employee Directory" class="emptable">
+        <h2>Employee Directory</h2>
+        <p>List of all the register employee</p>
+        <table >
+        <thead>
+            <tr>
+                <th>sno</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>age</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for it in item%}
+            <tr>
+                <td>{{it.sno}}</td>
+                <td>{{it.firstname}}</td>
+                <td>{{it.lastname}}</td>
+                <td>{{it.email}}</td>
+                <td>{{it.age}}</td>
+            </tr>
+        {%endfor%}
+    </tbody>
+        </table>
+    </section>
+
+<section id="contact us" class="contactus">
+    <h2>Contact Us Here</h2>
+    <p>You can contact us @comapan.in or 180000100</p>
+    <p>Timing <b>9am-5pm</b></p>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14390.269273184842!2d85.1413285732269!3d25.619290215927297!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ed58f84af86585%3A0xf8fa691bc41c8fdf!2sB.%20N.%20College!5e0!3m2!1sen!2sin!4v1706018184271!5m2!1sen!2sin" width="400" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+</section>
+
+<footer>
+    &copy;All Right Preserve 2023
+</footer>
+</body>
+</html>
