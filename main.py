@@ -1,4 +1,4 @@
-from flask import Flask,render_template,request,redirect,url_for
+from flask import Flask,render_template,request,redirect
 from flask_sqlalchemy import SQLAlchemy
 import json
 
@@ -24,7 +24,7 @@ class EMP(db.Model):
     age = db.Column(db.Integer, nullable=False)
     # date = db.Column(db.String(12),nullable=True)
     
-    
+
 @app.route("/",methods=['GET','POST'])
 def home():
     if (request.method=='POST'):
@@ -37,7 +37,17 @@ def home():
         db.session.add(entry)
         db.session.commit()
         return redirect('/')
+            
     item=EMP.query.all()
     return render_template('index.html',item=item,params=params)
+
+
+@app.route('/<int:sno>',methods=['GET','POST'])
+def delete(sno):
+    entry=EMP.query.filter_by(sno=sno).first()
+    db.session.delete(entry)
+    db.session.commit()
+    
+    return redirect('/')
 
 app.run(debug=True)

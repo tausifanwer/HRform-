@@ -30,10 +30,12 @@
             width: max-content;
             margin-left: auto;
             margin-right: auto;
+            color: aliceblue;
         }
 
         .emptable{
             text-align: center;
+            color: aliceblue;
 
         }
 
@@ -42,10 +44,12 @@
             margin-right: auto;
             width: 100%;
             border-collapse: collapse;
+            
         }
         td,th{
             border: 1px solid #395c60;
             padding: 4px;
+            color: aliceblue;
 
         }
         .contactus{
@@ -54,9 +58,29 @@
         iframe{
             width: 100%;
         }
+
         button{
             display: inline-block;
             margin-left: 100px;
+            cursor: pointer;
+            
+        }
+        .sbtn
+        {
+            margin-right:80%;
+            
+        }
+        .btn
+        {
+            display: inline-block;
+            margin-right: 100px;
+            font-family: Arial, Helvetica, sans-serif;
+            color:red;
+            border-color: red;
+            background-color:aliceblue;
+            cursor: pointer;
+            
+            
             
         }
     </style>
@@ -114,7 +138,11 @@
 
     <section id="Employee Directory" class="emptable">
         <h2>Employee Directory</h2>
-        <p>List of all the register employee</p>
+        <p>List of all the register employee</p><br>
+        <!-- <form action="#Employee Directory" method="post"></form>
+        <label for="id">SNO:</label>
+        <input class="sbtn"  type="number" name="sno" id="id">
+        </form><br> -->
         <table >
         <thead>
             <tr>
@@ -123,6 +151,7 @@
                 <th>Last Name</th>
                 <th>Email</th>
                 <th>age</th>
+                <th>Delete</th>
             </tr>
         </thead>
         <tbody>
@@ -133,6 +162,7 @@
                 <td>{{it.lastname}}</td>
                 <td>{{it.email}}</td>
                 <td>{{it.age}}</td>
+                <td><a href="/{{it.sno}}"><button type="button" class="btn">Delete</button></a></td>
             </tr>
         {%endfor%}
     </tbody>
